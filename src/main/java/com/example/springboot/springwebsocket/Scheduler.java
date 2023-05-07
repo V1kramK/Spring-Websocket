@@ -12,8 +12,8 @@ public class Scheduler {
     @Autowired
     SimpMessagingTemplate template;
 
-    @Scheduled(fixedDelay = 5000)
-    public void sendMessage() {
-        template.convertAndSend("/topic/greetings",new Greeting("Scheduled Message"));
-    }
+//     @Scheduled(fixedDelay = 5000)
+//     public void sendMessage() {
+//         template.convertAndSend("/topic/greetings",new Greeting("Scheduled Message"));
+//     }
 }
