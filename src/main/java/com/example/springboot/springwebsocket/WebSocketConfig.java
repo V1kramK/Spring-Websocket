@@ -1,5 +1,6 @@
 package com.example.springboot.springwebsocket;
 
+import org.apache.catalina.User;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.*;
@@ -10,6 +11,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/stomp-endpoint")   //Client connects to backend
+                .setHandshakeHandler(new UserHandshakeHandler())  //Creates new connection each time
                 .withSockJS();                           //establishes connection
     }
 
